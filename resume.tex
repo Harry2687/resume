@@ -1,45 +1,103 @@
-%!TEX TS-program = xelatex
-%!TEX encoding = UTF-8 Unicode
-% Awesome CV LaTeX Template for CV/Resume
-%
-% This template has been downloaded from:
-% https://github.com/posquit0/Awesome-CV
-%
-% Author:
-% Claud D. Park <posquit0.bj@gmail.com>
-% http://www.posquit0.com
-%
-% Template license:
-% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
-%
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
 
 
-%-------------------------------------------------------------------------------
-% CONFIGURATIONS
-%-------------------------------------------------------------------------------
-% A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[11pt, a4paper]{awesome-cv}
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
 
-% Configure page margins with geometry
-\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+% serif
+% \usepackage{CormorantGaramond}
+\usepackage{charter}
 
-% Color for highlights
-% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
-%                 awesome-nephritis, awesome-concrete, awesome-darknight
-\colorlet{awesome}{awesome-red}
-% Uncomment if you would like to specify your own color
-% \definecolor{awesome}{HTML}{3E6D9C}
 
-% Colors for text
-% Uncomment if you would like to specify your own color
-% \definecolor{darktext}{HTML}{414141}
-% \definecolor{text}{HTML}{333333}
-% \definecolor{graytext}{HTML}{5D5D5D}
-% \definecolor{lighttext}{HTML}{999999}
-% \definecolor{sectiondivider}{HTML}{5D5D5D}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
-% Set false if you don't want to highlight section with awesome color
-\setbool{acvSectionColorHighlight}{false}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 \usepackage{tikz}
 
@@ -64,66 +122,117 @@
         }
     }
 
-% If you would like to change the social information separator from a pipe (|) to something else
-\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%-------------------------------------------------------------------------------
-%	PERSONAL INFORMATION
-%	Comment any of the lines below if they are not required
-%-------------------------------------------------------------------------------
-% Available options: circle|rectangle,edge/noedge,left/right
-% \photo[rectangle,edge,right]{./examples/profile}
-\name{Harry}{Zhong}
-\position{Actuary (AIAA){\enskip\cdotp\enskip}Data Analyst}
-\address{Perth WA}
-
-\mobile{0403 041 075}
-\email{h.zhong2687@gmail.com}
-%\dateofbirth{January 1st, 1970}
-\homepage{harryz.netlify.app}
-\github{harry2687}
-\linkedin{harry2687}
-% \gitlab{gitlab-id}
-% \stackoverflow{SO-id}{SO-name}
-% \twitter{@twit}
-% \skype{skype-id}
-% \reddit{reddit-id}
-% \medium{madium-id}
-% \kaggle{kaggle-id}
-% \hackerrank{hackerrank-id}
-% \googlescholar{googlescholar-id}{name-to-display}
-%% \firstname and \lastname will be used
-% \googlescholar{googlescholar-id}{}
-% \extrainfo{extra information}
-
-% \quote{``Be the change that you want to see in the world."}
-
-
-%-------------------------------------------------------------------------------
 \begin{document}
 
-% Print the header with above personal information
-% Give optional argument to change alignment(C: center, L: left, R: right)
-\makecvheader[C]
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
 
-% Print the footer with 3 arguments(<left>, <center>, <right>)
-% Leave any of these blank if they are not needed
-% \makecvfooter
-%   {\today}
-%   {Byungjin Park~~~·~~~Résumé}
-%   {\thepage}
+\begin{center}
+    \textbf{\Huge \scshape Harry Zhong} \\ \vspace{1pt}
+    \small +61403041075 $|$ \href{mailto:h.zhong2687@gmail.com}{\underline{h.zhong2687@gmail.com}} $|$ 
+    \href{https://www.linkedin.com/in/harry2687/}{\underline{linkedin.com/in/harry2687}} $|$
+    \href{https://github.com/harry2687/}{\underline{github.com/harry2687}} $|$
+    \href{https://harryz.netlify.app/}{\underline{harryz.netlify.app}}
+\end{center}
 
 
-%-------------------------------------------------------------------------------
-%	CV/RESUME CONTENT
-%	Each section is imported separately, open each file in turn to modify content
-%-------------------------------------------------------------------------------
-% \input{resume/summary.tex}
-\input{resume/experience.tex}
-\input{resume/education.tex}
-% \input{resume/skills.tex}
-\input{resume/projects.tex}
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Curtin University}{Bentley, WA}
+      {Bachelor of Science (Actuarial Science) (Honours), CWA: 84\%}{Feb 2019 -- Jun 2023}
+    \resumeSubheading
+      {Actuaries Institute}{Perth, WA}
+      {Actuary Program (AIAA)}{Jul 2023 -- Oct 2023}
+  \resumeSubHeadingListEnd
 
-%-------------------------------------------------------------------------------
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Data Analyst}{Nov 2022 -- Present}
+      {EBM Insurance \& Risk}{Perth, WA}
+      \resumeItemListStart
+        \resumeItem{Gained a strong understanding of data analysis principles (relational databases, query languages, modelling) and applied them to a broad range of financial and insurance applications (financial reporting, scenario analysis, cashflow projection).}
+        \resumeItem{Managed income forecast project which used statistical techniques in \textbf{R} to predict future income for financial reporting.}
+        \resumeItem{Key contributor to the internal development of data analysis applications using \textbf{SQL} and \textbf{R}.}
+        \resumeItem{Introduced the use of \textbf{Shiny} applications for data visualisation and report distribution, and \textbf{Git} for version control in \textbf{R}.}
+        \resumeItem{Modelled annual income of client portfolios in \textbf{Microsoft Excel} for discounted cash flow valuations.}
+        \resumeItem{Delivered monthly income reports using \textbf{VBA} to automate repetitive tasks.}
+      \resumeItemListEnd
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/Harry2687/Gender-Prediction}{Gender Prediction - PyTorch}\ExternalLink} $|$ \emph{Python, PyTorch}}{2024}
+          \resumeItemListStart
+            \resumeItem{Used PyTorch to define and implement custom convolutional neural network used to classify facial features using the CelebA dataset.}
+            \resumeItem{Tuned hyperparameters (batch size, kernel sizes, and layer composition) to optimise convergence speed and loss measure.}
+            \resumeItem{Achieved 95\% accuracy in training and testing splits of dataset.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{\href{https://harryz.netlify.app/projects/spotify-analysis/}{Spotify Track Clustering}\ExternalLink} $|$ \emph{R, Spotify API}}{2024}
+          \resumeItemListStart
+            \resumeItem{Used R to extract Spotify streaming history along with Spotify's developer API to query track features.}
+            \resumeItem{Used Spotify track features to apply k-means clustering algorithm to tracks in streaming history.}
+            \resumeItem{Implemented brute force method of feature selection and parallel processing to optimise computation time.}
+            \resumeItem{Visualised clustering results and streaming trends using Shiny applications.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/Harry2687/Messenger-Analysis}{Messenger Chat Clustering - Gensim LDA}\ExternalLink} $|$ \emph{Python, Gensim}}{2024}
+          \resumeItemListStart
+            \resumeItem{Used Python to extract Facebook Messenger chat data stored as JSON files.}
+            \resumeItem{Implemented latent Dirichlet allocation (LDA) using the gensim module.}
+            \resumeItem{Tuned the 3 hyperparameters of LDA using coherence score as a measure of model performance.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{\href{https://www.researchgate.net/publication/372915363_Comparing_Stochastic_and_Constant_Volatility_Returns_Distributions_using_the_Heston_Model}{Honours Dissertation - Stochastic Volatility}\ExternalLink} $|$ \emph{R}}{2023}
+          \resumeItemListStart
+            \resumeItem{Used stochastic modelling to compare constant and stochastic volatility under geometric Brownian motion based on independent research.}
+            \resumeItem{Used R to optimise parameterisation and simulation via parallel processing.}
+            \resumeItem{Completed written research report and presented seminar presentation to supervisors.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: R, Python, SQL, Visual Basic} \\
+     \textbf{Software}{: Excel, Power BI} \\
+     \textbf{Developer Tools}{: Git, GitHub, VS Code, R Studio} \\
+     \textbf{Libraries (R)}{: ggplot2, dplyr, tidyr, purrr} \\
+     \textbf{Libraries (Python)}{: pandas, NumPy, Matplotlib, PyTorch}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
 \end{document}
