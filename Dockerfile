@@ -1,9 +1,9 @@
 FROM ubuntu:latest
 
 RUN apt-get update \
- && apt-get install texlive -y
+ && apt-get install texlive-latex-extra -y
 
-WORKDIR /app
+WORKDIR /project
 
 COPY resume.tex .
 
